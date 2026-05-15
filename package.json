@@ -1,0 +1,37 @@
+{
+  "name": "elegehub-crm-backend",
+  "version": "1.0.0",
+  "description": "Backend do CRM politico ElegeHub",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/main.ts",
+    "build": "tsc",
+    "start": "node dist/main.js",
+    "db:migrate": "tsx scripts/seed/run-migrations.ts",
+    "db:seed": "tsx scripts/seed/run-etl.ts",
+    "db:seed:fast": "tsx scripts/seed/run-etl.ts --skip-optional",
+    "etl:ibge:estados": "tsx scripts/etl/ibge-estados.ts",
+    "etl:ibge:municipios": "tsx scripts/etl/ibge-municipios.ts",
+    "etl:ibge:populacao": "tsx scripts/etl/ibge-populacao.ts",
+    "etl:ibge:geojson": "tsx scripts/etl/ibge-geojson.ts",
+    "etl:tse:partidos": "tsx scripts/etl/tse-partidos.ts",
+    "etl:tse:candidatos": "tsx scripts/etl/tse-candidatos.ts",
+    "etl:tse:votacao": "tsx scripts/etl/tse-votacao.ts",
+    "etl:tse:gastos": "tsx scripts/etl/tse-gastos.ts"
+  },
+  "dependencies": {
+    "@google-cloud/bigquery": "^7.9.0",
+    "@supabase/supabase-js": "^2.49.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "zod": "^3.25.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.18",
+    "@types/express": "^5.0.2",
+    "@types/node": "^22.15.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.8.0"
+  }
+}
