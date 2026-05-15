@@ -13,7 +13,7 @@ const app = express()
 // Middlewares
 app.use(
   cors({
-    origin: env.CORS_ORIGINS.split(',').map((origin) => origin.trim())
+    origin: env.CORS_ORIGINS.split(',').map((origin) => origin.trim().replace(/\/$/, ''))
   })
 )
 app.use(express.json())
